@@ -21,6 +21,10 @@ const User = ({ users }) => {
     }
   }, []);
 
+  if (!user[0]) {
+    return <div>loading . . .</div>;
+  }
+
   return (
     <div>
       <p>Some article by {user[0]?.name}</p>

@@ -12,10 +12,6 @@ CREATE TABLE Article (
   ownerId INTEGER REFERENCES User(id)
 )
 
-INSERT INTO User (name, email) values ('Gabs', 'gabs@gabs.com');
-
-INSERT INTO Article (title, content, ownerId) value("Test Title", "Test Content", 1)
-
 -- Down
 
 DROP TABLE User;

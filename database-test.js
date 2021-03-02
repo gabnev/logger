@@ -10,7 +10,6 @@ const sqlite3 = require("sqlite3");
 
   await db.migrate({ force: true });
 
-  const articles = await db.all("select * from article");
-
+  const articles = await db.all("select * from Article");
   console.log(JSON.stringify(articles, null, 4));
 })();

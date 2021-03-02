@@ -14,7 +14,7 @@ CREATE TABLE Article (
 
 INSERT INTO User (name, email) values ('Gabs', 'gabs@gabs.com');
 
-INSERT INTO Article (title, content, ownerId) value("Test Title", "Test Content", 1)
+INSERT INTO Article (title, content, ownerId) values ("Test Title", "Test Content", 1)
 
 -- Down
 

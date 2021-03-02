@@ -1,9 +1,21 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-const getAllUsers = (req: NextApiRequest, res: NextApiResponse) => {
-  res.json([{ name: "gabriel" }, { name: "stella" }]);
+const sqlite = require("sqlite");
+const sqlite3 = require("sqlite3");
 
-  return <div></div>;
+const getAllUsers = async (req: NextApiRequest, res: NextApiResponse) => {
+  // if (req.method !== "GET") {
+  //   res.status(500).json({ message: "Sorry, only GET requests" });
+  // }
+
+  const db = await sqlite.open({
+    filename: "./articles.sqlite",
+    driver: sqlite3.Database,
+  });
+
+  const users = await db.all("select * from user");
+
+  res.json(users);
 };
 
 export default getAllUsers;

@@ -8,8 +8,12 @@ const sqlite3 = require("sqlite3");
     driver: sqlite3.Database,
   });
 
-  await db.migrate({ force: true });
+  await db.migrate({
+    force: true,
+  });
 
-  const articles = await db.all("select * from Article");
+  const users = await db.all("select * from user");
+  const articles = await db.all("select * from article");
+  console.log(JSON.stringify(users, null, 4));
   console.log(JSON.stringify(articles, null, 4));
 })();

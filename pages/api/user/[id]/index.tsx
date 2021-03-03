@@ -9,16 +9,19 @@ const getUserById = async (req: NextApiRequest, res: NextApiResponse) => {
     driver: sqlite3.Database,
   });
 
-  if (req.method === "PUT") {
-    await db.run(
-      "UPDATE person SET name = ?, email = ? where id = ?",
-      req.body.name,
-      req.body.email,
-      req.query.id
-    );
-  }
+  // Sqlite v4 version, but it is not working so far.
+  // if (req.method === "PUT") {
+  //   await db.run(
+  //     "UPDATE user SET name = ?, email = ? where id = ?",
+  //     req.body.name,
+  //     req.body.email,
+  //     req.query.id
+  //   );
+  // }
 
-  const user = await db.get("select * from user where id = ?", [req.query.id]);
+  const user = await db.get("select id, email, name from user where id = ?", [
+    req.query.id,
+  ]);
 
   res.json(user);
 };

@@ -2,7 +2,8 @@
 CREATE TABLE User (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT,
-  email TEXT
+  email TEXT,
+  password TEXT
 );
 
 CREATE TABLE Article (
@@ -12,10 +13,10 @@ CREATE TABLE Article (
   ownerId INTEGER REFERENCES User(id)
 );
 
-INSERT INTO User (name, email) values ('Gabs', 'gabs@gabs.com');
-INSERT INTO User (name, email) values ('Stella', 'stella@stella.com');
-INSERT INTO Article (title, content, ownerId) values ("Test Title", "Test Content", 1);
-INSERT INTO Article (title, content, ownerId) values ("Test2 Title", "Test2 Content", 1);
+-- INSERT INTO User (name, email) values ('Gabs', 'gabs@gabs.com');
+-- INSERT INTO User (name, email) values ('Stella', 'stella@stella.com');
+-- INSERT INTO Article (title, content, ownerId) values ("Test Title", "Test Content", 1);
+-- INSERT INTO Article (title, content, ownerId) values ("Test2 Title", "Test2 Content", 1);
 
 -- Down
 
